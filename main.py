@@ -10,7 +10,7 @@ userAddress: str = input("Who is the owner of the wallet? ")
 if userAddress == "admin":
     userAddress = "0x715c9ef6e4f3c6c30ce2761371cca97bb6912345"
 else:
-    userAddress = userAddress
+    pass
 
 # Open the database
 open(file, mode='r')
@@ -36,9 +36,9 @@ with open(file) as file:
             totalSum = round(sum, 2)
             if row != '\n':
                 count += 1
+                print(row[3], row[4], row[5], row[8], row[10])
                 print("Transaction №", count,"Total sum is: ", totalSum, "MATIC")
         else:
             pass
-print("Как вывести последнюю строку отсюда, блин!!!!!!!!")
 
 # Show the last line of the database
