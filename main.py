@@ -32,7 +32,7 @@ with open(file) as file:
         endDate = datetime.strptime(end_date_str, '%Y-%m-%d')
         senderAddress = row[4]
         # Print the rows with specific period and sender address
-        if start_date <= date <= endDate and user_address == senderAddress:
+        if start_date <= date <= endDate and user_address.lower() == senderAddress:
             sum += float(row[8]) + float(row[10])
             total_sum = round(sum, 2)
             if row != '\n':
