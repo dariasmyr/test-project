@@ -37,7 +37,7 @@ with open(file) as file:
             if row != '\n':
                 count += 1
                 print(row[3], row[4], row[5], row[8], row[10])
-                print("Transaction №", count,"Total sum is: ", totalSum, "MATIC")
+                print(f"Transaction № {count} \nTotal sum is: {totalSum} MATIC")
         else:
             pass
 
