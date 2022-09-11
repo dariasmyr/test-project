@@ -6,11 +6,11 @@ from datetime import datetime
 file: str = input("Enter the name of the file: ")
 startDate_str = input("Enter the start date: ")
 endDate_str = input("Enter the end date: ")
-address: str = input("Who is the owner of the wallet? ")
-if address == "admin":
-    address = "0x715c9ef6e4f3c6c30ce2761371cca97bb6912345"
+userAddress: str = input("Who is the owner of the wallet? ")
+if userAddress == "admin":
+    userAddress = "0x715c9ef6e4f3c6c30ce2761371cca97bb6912345"
 else:
-    address = address
+    userAddress = userAddress
 
 # Open the database
 open(file, mode='r')
@@ -29,9 +29,9 @@ with open(file) as file:
         date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
         startDate = datetime.strptime(startDate_str, '%Y-%m-%d')
         endDate = datetime.strptime(endDate_str, '%Y-%m-%d')
-        address = row[4]
+        senderAddress = row[4]
         # Print the rows with specific period and sender address
-        if startDate <= date <= endDate and address == '0x715c9ef6e4f3c6c30ce2761371cca97bb6912345':
+        if startDate <= date <= endDate and userAddress == senderAddress:
             sum += float(row[8]) + float(row[10])
             totalSum = round(sum, 2)
             if row != '\n':
@@ -39,5 +39,6 @@ with open(file) as file:
                 print("Transaction №", count,"Total sum is: ", totalSum, "MATIC")
         else:
             pass
+print("Как вывести последнюю строку отсюда, блин!!!!!!!!")
 
 # Show the last line of the database
