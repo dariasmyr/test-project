@@ -4,6 +4,12 @@ from datetime import datetime
 
 # Input the attributes
 file: str = input("Enter the name of the file: ")
+
+# Open the database
+open(file, mode='r')
+type(file)
+csv_reader = csv.reader(file)
+
 start_date_str = input("Enter the start date: ")
 end_date_str = input("Enter the end date: ")
 user_address: str = input("Who is the owner of the wallet? ")
@@ -11,11 +17,6 @@ if user_address == "admin":
     user_address = "0x715c9ef6e4f3c6c30ce2761371cca97bb6912345"
 else:
     pass
-
-# Open the database
-open(file, mode='r')
-type(file)
-csv_reader = csv.reader(file)
 
 # Select rows with specific period and sender address
 with open(file) as file:
@@ -35,8 +36,7 @@ with open(file) as file:
         if start_date <= date <= endDate and user_address.lower() == senderAddress:
             sum += float(row[8]) + float(row[10])
             total_sum = round(sum, 2)
-            if row != '\n':
-                count += 1
+            count += 1
         else:
             pass
     print(f"Transaction № {count} \nTotal sum is: {total_sum} MATIC")
