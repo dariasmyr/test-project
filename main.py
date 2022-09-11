@@ -6,7 +6,7 @@ from datetime import datetime
 file: str = input("Enter the name of the file: ")
 start_date_str = input("Enter the start date: ")
 end_date_str = input("Enter the end date: ")
-user_address: str = input("Who is the owner of the wallet?")
+user_address: str = input("Who is the owner of the wallet? ")
 if user_address == "admin":
     user_address = "0x715c9ef6e4f3c6c30ce2761371cca97bb6912345"
 else:
@@ -23,6 +23,7 @@ with open(file) as file:
     next(csv_reader_content)
     sum = 0
     count = 0
+    total_sum = 0
     for row in csv_reader_content:
         # Convert the date to datetime format
         date = row[3]
