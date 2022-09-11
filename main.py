@@ -36,7 +36,6 @@ with open(file) as file:
             total_sum = round(sum, 2)
             if row != '\n':
                 count += 1
-                print(row[3], row[4], row[5], row[8], row[10])
         else:
             pass
     print(f"Transaction № {count} \nTotal sum is: {total_sum} MATIC")
